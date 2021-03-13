@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{form_start(form)}}
+        {{form_row(form.invoiceDate, { attr:{ class:'js-datepicker' } })}}
+    {{form_end(form)}}
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script>
+        $('.js-datepicker').datepicker({
+            format:'yyyy.MM.dd'
+        });
+    </script>
+{% endblock %}

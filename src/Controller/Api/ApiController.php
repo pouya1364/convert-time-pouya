@@ -12,7 +12,7 @@ class ApiController
     public function convert(Request $request): JsonResponse
     {
         $response = new JsonResponse();
-        
+
         try {
             $reader = new DateValidator($request);
             $converter = new MarsConverter($reader->getDateTime());

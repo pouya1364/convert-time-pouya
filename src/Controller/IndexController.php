@@ -16,9 +16,14 @@ class IndexController extends AbstractController
     protected function buildForm() 
     {
         $form =  $this->createFormBuilder()
-        ->add('marsDateTime', TextType::class, [
+        ->add('marsDate', TextType::class, [
+            'label'=>'Date on Earth in UTC ',
+            'help' => 'Date is a string with this format: YYY-MM-DD',
+            'required'=>true,
+        ])
+        ->add('marsTime', TextType::class, [
             'label'=>'Time on Earth in UTC ',
-            'help' => 'Date is a string with this format: YYY-MM-DD H24:MM:SS || Sample: 2021-02-03 14:00:12',
+            'help' => 'Time is a string with this format: H24:MM:SS',
             'required'=>true,
         ])
         

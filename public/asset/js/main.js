@@ -1,9 +1,26 @@
+
 $(document).ready(function () {
-                
+    var date =  $('#form_marsDate');
+    date.datepicker({
+        format: "yyyy-mm-dd",
+        todayHighlight: true,
+        autoclose: true
+        
+    });
+    date.datepicker('setDate', 'today');
+
+    $('#form_marsTime').timepicker({
+        format: 'hh-mm-ss',
+        showMeridian: false,
+        showSeconds: true,
+    });
+    
     $("#form_convert").submit(function(event){
         event.preventDefault();
       
-        var datetime = $("#form_marsDateTime").val();
+        var date = $("#form_marsDate").val();
+        var time = $("#form_marsTime").val();
+        var datetime = date+' '+time;
 
         $.ajax({
             url : 'api/convert',

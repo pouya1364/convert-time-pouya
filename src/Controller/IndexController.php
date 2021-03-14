@@ -17,7 +17,7 @@ class IndexController extends AbstractController
     {
         $form =  $this->createFormBuilder()
         ->add('marsDateTime', TextType::class, [
-            'label'=>'Write a time to convert: ',
+            'label'=>'Time on Earth in UTC ',
             'help' => 'Date is a string with this format: YYY-MM-DD H24:MM:SS || Sample: 2021-02-03 14:00:12',
             'required'=>true,
         ])

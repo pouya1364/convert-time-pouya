@@ -13,7 +13,6 @@ class ApiController
     {
         $response = new JsonResponse();
         
-        
         try {
             $reader = new DateValidator($request);
             $converter = new MarsConverter($reader->getDateTime());

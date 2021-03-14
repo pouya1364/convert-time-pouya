@@ -15,7 +15,8 @@ class DateValidator
 
     public function getDateTime(): \DateTime
     {
-        if (!$dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $this->request->request->get('datetime'))) {
+        
+        if (!$dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $this->request->request->get('form')['marsDateTime'])) {
             throw new \InvalidArgumentException('Given datetime is not valid!');
         }
 

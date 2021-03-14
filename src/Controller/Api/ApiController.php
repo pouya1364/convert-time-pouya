@@ -8,13 +8,13 @@ use App\Converter\MarsConverter;
 
 class ApiController
 {
-    /**
-     * @Route("api/convert", method={"POST"})
-     */
+  
     public function convert(Request $request): JsonResponse
     {
         $response = new JsonResponse();
-
+        
+        dump($request);
+        
         try {
             $reader = new DateValidator($request);
             $converter = new MarsConverter($reader->getDateTime());

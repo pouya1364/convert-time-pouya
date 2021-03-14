@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form(form) }}
+	<button type="button" class="btn btn-primary" id="convert">Convert2</button>
+
+    <div class="row">
+      <div class="col-sm-6">
+				<div class="card">
+					<div class="card-header">
+						Mars Sol Date (MSD) 
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" id="show_date">Date will show up here</h5>
+					</div>
+				</div>
+        </div>
+
+        <div class="col-sm-6">
+        <div class="card">
+					<div class="card-header" >
+						Martian Coordinated Time (MTC)
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" id="show_time">Time</h5>
+					</div>
+				</div>
+        </div>
+			</div>
+
+
+		</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='js/jquery.min.js'></script>
+    {# {{parent()}} #}
+    <script>
+            
+        $(document).ready(function () {
+            $("#convert").submit(function(event){
+                event.preventDefault();
+                console.log('hello');
+                var datetime = $("#form_marsDateTime").val();
+
+                $.ajax({
+                    url : "http://localhost:8000/api/convert",
+                    data: {datetime: datetime},
+                    type : "post",
+                    success : function(response){
+                        $("#results").html(JSON.stringify(response));
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

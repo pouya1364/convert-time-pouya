@@ -20,7 +20,7 @@ class IndexController extends AbstractController
             'label'=>'Write a time: ',
             'attr' => ['class' => 'tinymce'],
             'empty_data' => 'John Doe',
-            'help' => 'Date is a string with this format: YYY-MM-DD H24:M:S || Sample: 2021-02-03 14:00:12',
+            'help' => 'Date is a string with this format: YYY-MM-DD H24:MM:SS || Sample: 2021-02-03 14:00:12',
             
             'required'=>true,
         ])

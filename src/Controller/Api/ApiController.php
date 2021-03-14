@@ -13,7 +13,6 @@ class ApiController
     {
         $response = new JsonResponse();
         
-        dump($request);
         
         try {
             $reader = new DateValidator($request);

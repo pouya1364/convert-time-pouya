@@ -1,27 +1,37 @@
 {% extends 'base.html.twig' %}
-{% block body %}
-    {{ form(form) }}
-	<button type="button" class="btn btn-primary" id="convert">Convert2</button>
+{% block title %}Mars Convertor{% endblock %}
 
-    <div class="row">
-      <div class="col-sm-6">
+{% block body %}
+    <div class="d-flex align-items-center justify-content-center">
+    {{ form_start(form, {'attr': {'class':'col-sm-3', 'id': 'form_convert'}}) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    </div>
+    
+    <div id='alert'></div>  
+    
+    <div class="d-flex align-items-center justify-content-center" style="height: 350px">
+      <div class="col-sm-3">
 				<div class="card">
 					<div class="card-header">
 						Mars Sol Date (MSD) 
 					</div>
 					<div class="card-body">
 						<h5 class="card-title" id="show_date">Date will show up here</h5>
+                        <h7 class="card-title" id="mars_date"></h7>
 					</div>
 				</div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-3">
         <div class="card">
 					<div class="card-header" >
 						Martian Coordinated Time (MTC)
 					</div>
 					<div class="card-body">
 						<h5 class="card-title" id="show_time">Time</h5>
+                        <h7 class="card-title" id="martin_date"></h7>
+
 					</div>
 				</div>
         </div>
@@ -31,30 +41,10 @@
 		</div>
 
 
-{% endblock %}
 
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src='js/jquery.min.js'></script>
-    {# {{parent()}} #}
-    <script>
-            
-        $(document).ready(function () {
-            $("#convert").submit(function(event){
-                event.preventDefault();
-                console.log('hello');
-                var datetime = $("#form_marsDateTime").val();
 
-                $.ajax({
-                    url : "http://localhost:8000/api/convert",
-                    data: {datetime: datetime},
-                    type : "post",
-                    success : function(response){
-                        $("#results").html(JSON.stringify(response));
-                    }
-                });
-            });
-        });
-    </script>
-
+    {% block javascripts %}
+        {{parent()}}
+        <script src={{ asset('js/main.js') }}></script> 
+    {% endblock %}
 {% endblock %}

@@ -23,7 +23,7 @@ $(document).ready(function () {
         var datetime = date+' '+time;
 
         $.ajax({
-            url : 'api/convert',
+            url : 'api/convert1',
             data: {datetime: datetime},
             type : "post",
             dataType: "json",

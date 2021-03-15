@@ -1,5 +1,4 @@
-
-$(document).ready(function () {
+jQuery(function () {
     // set date 
     var date =  $('#form_marsDate');
     date.datepicker({
@@ -19,7 +18,7 @@ $(document).ready(function () {
     });
     
     // on submit send date and time to api/convert
-    $("#form_convert").submit(function(event){
+    $("#form_convert").on('submit', function(event){
         event.preventDefault();
       
         var date = $("#form_marsDate").val();

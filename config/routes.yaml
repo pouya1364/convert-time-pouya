@@ -4,7 +4,7 @@ index:
 
 convert:
   path: api/convert
-  controller: App\Controller\Api\ApiController::convert
+  controller: App\Controller\Api\ApiController::convertApi
   methods: [POST]
 
 

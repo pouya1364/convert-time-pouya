@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Validator\DateValidator;
 use App\Converter\MarsConverter;
 
-
+/**
+ * This set of test run application and check return type and values
+ */
 class DefaultMarsConverterTest extends TestCase
 {
 

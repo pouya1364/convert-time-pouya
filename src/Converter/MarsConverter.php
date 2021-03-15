@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Converter;
-
+/**
+ * convert Earth date and time to Mars
+ */
 class MarsConverter
 {
-    const CURRENT_LEAP_SECONDS = 37;
-
+    private const CURRENT_LEAP_SECONDS = 37;
+    private const MTC_FORMAT = 'H:i:s';
     private $earthDate;
 
     public function __construct(\DateTime $earthDate)
@@ -13,7 +15,11 @@ class MarsConverter
         $this->earthDate = $earthDate;
     }
 
-   
+    /**
+     * Calculate Mars Sol Date (MSD)
+     *
+     * @return float
+     */
     public function getMarsSolDate(): float
     {
         $seconds = $this->earthDate->getTimestamp();
@@ -27,12 +33,17 @@ class MarsConverter
         return ($julianDateTT - 2405522.0028779) / 1.0274912517;
     }
 
+   /**
+    * Calculate Martian Coordinated Time (MTC)
+    *
+    * @return string
+    */
     public function getMartianCoordinatedTime(): string
     {
         $marsSolDate = $this->getMarsSolDate();
 
         $martianHours = fmod((24 * $marsSolDate), 24);
 
-        return gmdate("H:i:s", (int) floor($martianHours * 3600));
+        return gmdate(self::MTC_FORMAT, (int) floor($martianHours * 3600));
     }
 }

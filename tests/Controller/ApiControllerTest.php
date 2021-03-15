@@ -5,7 +5,9 @@ namespace App\Controller\Tests;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Test API functionality and result
+ */
 class ApiControllerTest extends TestCase
 {
     public function setUp() :void

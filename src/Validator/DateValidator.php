@@ -24,7 +24,7 @@ class DateValidator
     {
         
         if (!$dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $this->request->request->get('datetime'))) {
-            throw new \InvalidArgumentException('Given Date Time is not valid! Please use this format: Y-m-d H:i:s');
+            throw new \InvalidArgumentException('Given date and time is not valid! Please use this format: YYYY-MM-DD H24:Mi:SS');
         }
 
         return $dateTime;

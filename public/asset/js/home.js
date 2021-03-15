@@ -1,4 +1,4 @@
-jQuery(function () {
+$( document ).ready(function () {
     // set date 
     var date =  $('#form_marsDate');
     date.datepicker({
@@ -18,13 +18,13 @@ jQuery(function () {
     });
     
     // on submit send date and time to api/convert
-    $("#form_convert").on('submit', function(event){
+    $("#form_convert_mars_date").submit(function(event){
         event.preventDefault();
       
         var date = $("#form_marsDate").val();
         var time = $("#form_marsTime").val();
         var datetime = date+' '+time;
-
+        var alertBox = $("#alert-box"); 
         $.ajax({
             url : 'api/convert',
             data: {datetime: datetime},
@@ -33,15 +33,15 @@ jQuery(function () {
             success : function(response){
                 if (response.status ==200)
                 {
+                    alertBox.hide();
                     // show mars and martian time
                     $("#mars_date").html(response.data.mars_sol_date);
                     $("#martin_date").html(response.data.martian_coordinated_time);
                    
                 } else {
                     // show alert in case of bad response
-                    $("#alert").toggle();
-                    $("#alert").html(response.message);
-
+                    alertBox.show();
+                    $("#alert-box").html(response.message);
                 }
             }
         });

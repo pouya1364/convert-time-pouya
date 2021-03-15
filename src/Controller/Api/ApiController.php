@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Validator\DateValidator;
 use App\Converter\MarsConverter;
+
 /**
  * API controller to create end points
  */
@@ -41,7 +42,8 @@ class ApiController
                 'status' => self::HTTP_ERR,
                 'message' => $e->getMessage(),
             ]);
-            // throw $e;
+
+            throw $e;
             
         } finally {
             return $response;

@@ -16,7 +16,6 @@
         "symfony/flex": "^1.12",
         "symfony/form": "5.2.*",
         "symfony/framework-bundle": "5.2.*",
-        "symfony/phpunit-bridge": "^5.2",
         "symfony/twig-bundle": "5.2.*",
         "symfony/yaml": "5.2.*"
     },
@@ -64,6 +63,7 @@
         }
     },
     "require-dev": {
+        "phpunit/phpunit": "^9.5",
         "symfony/var-dumper": "5.2.*"
     }
 }

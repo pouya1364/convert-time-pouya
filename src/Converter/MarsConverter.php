@@ -8,6 +8,7 @@ class MarsConverter
 {
     private const CURRENT_LEAP_SECONDS = 37;
     private const MTC_FORMAT = 'H:i:s';
+
     private $earthDate;
 
     public function __construct(\DateTime $earthDate)

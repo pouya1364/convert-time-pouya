@@ -41,9 +41,12 @@ class ApiController
                 'status' => self::HTTP_ERR,
                 'message' => $e->getMessage(),
             ]);
+            // throw $e;
+            
+        } finally {
+            return $response;
         }
 
-        return $response;
     }
 }
 

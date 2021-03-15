@@ -1,21 +1,21 @@
 jQuery(function () {
-    // set date 
-    var date =  $('#form_marsDate');
-    date.datepicker({
-        format: "yyyy-mm-dd",
-        todayHighlight: true,
-        autoclose: true
+    // // set date 
+    // var date =  $('#form_marsDate');
+    // date.datepicker({
+    //     format: "yyyy-mm-dd",
+    //     todayHighlight: true,
+    //     autoclose: true
         
-    });
-    // set today date
-    date.datepicker('setDate', 'today');
+    // });
+    // // set today date
+    // date.datepicker('setDate', 'today');
 
-    // set time
-    $('#form_marsTime').timepicker({
-        format: 'hh-mm-ss',
-        showMeridian: false,
-        showSeconds: true,
-    });
+    // // set time
+    // $('#form_marsTime').timepicker({
+    //     format: 'hh-mm-ss',
+    //     showMeridian: false,
+    //     showSeconds: true,
+    // });
     
     // on submit send date and time to api/convert
     $("#form_convert").on('submit', function(event){

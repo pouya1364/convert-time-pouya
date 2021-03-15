@@ -1,23 +1,28 @@
 <?php
 
-// namespace App\Controller\Tests;
+namespace App\Controller\Tests;
 
-// use PHPUnit\Framework\TestCase;
-// use Symfony\Component\HttpFoundation\Request;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
 
-// class DefaultApiControllerTest extends TestCase
-// {
-//     public function test1()
-//         {
-//             $request = Request::create(
-//                 '/api/convert',
-//                 'POST',
-//                 ['datetime' => '2021-02-03 14:00:12']
-//             );
 
-//             $request->request->get('datetime');
-//             print_r($request->request->get('datetime'));
-//             // $this->assertEquals($marsSolDate, 52289.25109857464);
-//             // $this->assertEquals($martianTime, '06:01:34');
-//         }
-// }
+class ApiControllerTest extends TestCase
+{
+    public function setUp() :void
+    {
+        date_default_timezone_set('Europe/London');
+    }
+
+    public function testApiSuccess()
+    {
+        $request = Request::create(
+            '/api/convert',
+            'POST',
+            ['datetime' => '2021-02-03 14:00:12']
+        );
+
+        $response = $request->request->get('datetime');
+        $this->assertEquals( $response, '2021-02-03 14:00:12');
+    }
+
+}

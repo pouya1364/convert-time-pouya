@@ -1,4 +1,4 @@
-# Pouya Mars converter
+# Mars converter
 
 # Available recipes
  * phpunit/phpunit 
